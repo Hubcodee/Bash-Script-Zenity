@@ -2,6 +2,8 @@
 
 FILE=`dirname $0`/text
 
+Date=$(date +"%nDate: %D%nTIME: %T" )
+
 zenity --text-info --title="RHEL8 setup" --checkbox="I read and accept the terms." --filename=$FILE
 
 case $? in 
@@ -32,7 +34,7 @@ esac
 ) | zenity --progress --title="Progress.." --text="Upgrading .." --percentage=0 
 
 if [ "$?" = 0 ] ; then
-	zenity --notification --window-icon="info" --text="Upgrade carried out successfully."
+	zenity --notification --window-icon="info" --text="Upgrade carried out successfully.$Date"
 fi
 
 
